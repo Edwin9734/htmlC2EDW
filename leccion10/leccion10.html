@@ -2,36 +2,143 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lección 10: Formularios en HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Karate - Bienvenida</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; }
-        .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; }
-        h1 { color: #2c3e50; }
-        form { margin: 16px 0; }
-        label { display: block; margin: 8px 0 4px; }
-        input, textarea, select { width: 100%; padding: 6px; margin-bottom: 12px; }
-        .reto { background: #eaf6ff; border-left: 4px solid #2980b9; padding: 12px; margin-top: 24px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('dragon-logo.png'), url('https://images.unsplash.com/photo-1555597673-b21d5c935865?ixlib=rb-1.2.1');
+            background-size: 80%, cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1;
+        }
+        .container { 
+            width: 90%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+        }
+        h1 { 
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 3;
+        }
+        form { 
+            margin: 20px 0; 
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label { 
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        input { 
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #e74c3c;
+            outline: none;
+        }
+        button { 
+            width: 100%;
+            padding: 14px;
+            background: #c41e3a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        button:hover { 
+            background: #a01830;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Formularios en HTML</h1>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre">
-            <label for="comentario">Comentario:</label>
-            <textarea id="comentario" name="comentario"></textarea>
-            <label for="opcion">Opción:</label>
-            <select id="opcion" name="opcion">
-                <option value="1">Opción 1</option>
-                <option value="2">Opción 2</option>
-            </select>
-            <button type="submit">Enviar</button>
+        <h1>Bienvenido a la Academia de Karate</h1>
+        <form onsubmit="return validarAcceso(event)">
+            <div class="form-group">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Iniciar Sesión</button>
         </form>
-        <div class="reto">
-            <strong>Reto:</strong> Agrega un campo nuevo al formulario.
-        </div>
-        <p><a href="../index.html">Volver al índice</a></p>
     </div>
+
+    <script>
+        function validarAcceso(event) {
+            event.preventDefault();
+            const usuario = document.getElementById('usuario').value;
+            const password = document.getElementById('password').value;
+            
+            if(usuario && password) {
+                alert('¡Bienvenido a la Academia de Karate!');
+                // Aquí puedes agregar la lógica de autenticación real
+            } else {
+                alert('Por favor complete todos los campos');
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
+        }
+    </script>
+</body>
+</html>
+                alert('¡Bienvenido a la Academia de Karate!');
+                // Aquí puedes agregar la lógica de autenticación real
+            } else {
+                alert('Por favor complete todos los campos');
+            }
+            return false;
+        }
+    </script>
 </body>
 </html>
